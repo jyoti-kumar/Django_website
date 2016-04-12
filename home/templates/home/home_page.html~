@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <meta charset="UTF-8">
+        <title>THE VINCI CODE</title>
+    </head>
+<style>
+{  
+    background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
+    background-size: cover;
+    font-family: Montserrat;
+}
+
+h1{
+    width= 100%;
+    font-size: 35px;
+    font-weight: bold;
+    font-family:algerian;
+    text-align : center;
+}
+
+h3{
+    width= 100%;
+    font-size: 30px;
+    font-weight: bold;
+    font-family:Bradley Hand ITC;
+    text-align : center;
+}
+
+.logo {
+    width: 340px;
+    height: 75px;
+    margin: 40px auto 30px;
+}
+.block {
+    width: 405px;
+    padding: 20px;
+    border: 1px solid #680000;
+     margin: 0 auto;
+}
+.block button {
+    width: 400px;
+    height: 60px;
+    background: #680000;
+    border-radius: 5px;
+    border: 1.5px solid #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Montserrat;
+    cursor: pointer;
+    margin: 20px auto 20px;
+}
+.block button:hover {
+    width:405px;
+    height: 65px;
+    background: #707070;
+    font-size : 25px;
+    font-weight:bold;
+    color: #ffff00;
+}
+</style>
+
+
+    <body>
+         {% ifequal hk "online" %}
+                <a href="/home/logout/">Logout</a><br>
+            	KEY FOR NEXT QUESTION {{key}}
+            	<form action="/home/submit_ans" method="POST">
+                    	{% csrf_token %}
+                    		ANS:<br>
+                    		<input type"text" name="ans"><br>
+                    		<input type="submit" value="Submit" name="Submit">
+            	</form>
+         {% else %}
+	       <h1>DR. B.R. AMBEDKAR NATIONAL INSTITUTE OF TECHNOLOGY,JALANDHAR</h1>
+        <div class="logo">
+        {% load staticfiles %}
+        <a href="{% static '/home/img/hello.jpeg/' %}">hello</a></div>
+        <h3>Test your capability to debug,analyse and solve problem codes.</h3>
+        <div class="block">
+               <a href="/home/register/"><button>REGISTER</button></a><br/>
+               <a href="/home/login/"><button>LOGIN</button></a>
+        </div>  
+            {% endifequal %}  
+    </body>
+</html>

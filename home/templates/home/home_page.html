@@ -1,0 +1,256 @@
+ {% csrf_token %}
+<!DOCTYPE html>
+<html>
+    <head>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <meta charset="UTF-8">
+        <title>THE VINCI CODE</title>
+    </head>
+<style>
+body {  
+    background: url('/static/home/img/heyyy.jpg') no-repeat fixed center center;
+    background-size: cover;
+    font-family: Montserrat;
+}
+table#t01 {
+            width: 100%;
+            background-color: #CFE2CF;
+            border: 1px solid black;
+            border-collapse: collapse;
+            }
+            th, td {
+                text-align: center;
+            border: 4px solid #556b2f;
+            border-collapse: collapse;
+            }
+            th{background-color: #CFE2CF;color:#000000;}
+            table#t01 tr:nth-child(even) {
+                background-color: #eee;
+                    }
+            table#t01 tr:nth-child(odd) {
+                background-color: #fff;
+                    }
+                    b{text-decoration: none;}
+
+                #su
+                {
+                    padding:5px 20px;
+                    text-decoration:none;
+                    border:1px solid green;
+                    color:green;
+                    border-radius:4px;
+                    float:right;
+                    margin-top:10px;
+                    margin-right: 10px;
+                    background-color: white;               
+                 }
+                #su:hover
+                {
+
+                    padding:5px 20px;
+                    text-decoration:none;
+                    border:1px solid green;
+                    color:white;
+                    border-radius:4px;
+                    float:right;
+                    margin-top:10px;
+                    margin-right: 10px;
+                    background-color: green;
+
+                }
+                #su1
+                {
+                    padding:5px 20px;
+                    text-decoration:none;
+                    border:1px solid green;
+                    color:green;
+                    border-radius:4px;
+                  
+                    background-color: white;               
+                 }
+                #su1:hover
+                {
+
+                    padding:5px 20px;
+                    text-decoration:none;
+                    border:1px solid green;
+                    color:white;
+                    border-radius:4px;
+                   
+                    background-color: green;
+
+                }
+                #inp
+                {
+                  width:250px;
+                  border:2px solid green;
+                  padding:3px;
+                  border-radius:4px;
+
+                }
+                #inp:focus
+                {
+                  width:250px;
+                  border:2px solid green;
+                  padding:3px;
+                  border-radius:4px;
+                  outline-color: green;
+
+                }
+
+pre{
+    width= 100%;
+    font-size: 35px;
+    font-weight: bold;
+    font-family:algerian;
+    color:#000080;
+
+}
+
+h3{
+    width= 100%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:Bradley Hand ITC;
+    text-align : center;
+    color:#000000;
+}
+
+.logo {
+    width: 340px;
+    height: 75px;
+    margin: 60px auto 30px;
+}
+.block {
+    width: 405px;
+    padding: 20px;
+
+    margin: 0 auto;
+}
+.block button {
+    width: 400px;
+    height: 60px;
+    background-color: #556b2f;
+    border-radius: 5px;
+    border: 1.5px solid #000;
+    color: #FFFFFf;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Montserrat;
+    cursor: pointer;
+    margin: 20px auto 20px;
+}
+.block button:hover {
+    width:405px;
+    height: 65px;
+    background:#CFE2CF;
+    font-size : 25px;
+    font-weight:bold;
+    color: #000000;
+}
+.heya
+{
+
+    width= 100%;
+    font-size: 35px;
+    font-weight: bold;
+    font-family:algerian;
+    color:#000080;
+    margin-left: 400px;
+}
+.as{
+    width:200px;
+    height: 40px;
+    background-color:#CFE2CF;
+    font-size : 15px;
+    font-weight:bold;
+    color: #000000;
+    margin-left:750px;
+    margin-top:15px;
+ 
+
+}
+.sd{
+    width:200px;
+    height: 40px;
+    background-color:#CFE2CF;
+    font-size : 15px;
+    font-weight:bold;
+    color: #000000;
+    margin-top: 15px;
+    
+}
+</style>
+
+
+    <body>
+         {% ifequal hk "online" %}
+    <div>
+       <p style="font-size:17px;float:left;">User : {{username}}</p>
+        <a href="/home/logout/" id="su" >Logout</a><br/>
+        <center>
+        <br/><br/>
+        
+        <p>KEY FOR THE QNO {{current_q_no}} IS: {{key}}</p>
+        <br/>
+        <form action="/home/submit_ans" method="POST">
+        {% csrf_token %}
+            QNO:{{current_q_no}} ANS:
+            <input type"text" name="ans" id="inp"><br/><br/>
+            <input type="submit" value="Submit" name="Submit" id="su1">
+        </form>
+        </center>
+        </div>
+        <br/><br/><br/><br/><br/>
+          
+         
+        <center> 
+        <div style="width:60%">
+        <p id="demo">hello</p>
+        </div>
+        </center>
+        <div>
+        <script type="text/javascript">
+            function dashboard()
+            {
+                var xhttp = new XMLHttpRequest();
+                //alert();
+                xhttp.onreadystatechange = function()
+                    {//alert("shravan");
+                        if (xhttp.readyState == 4 && xhttp.status == 200)
+                        {
+                                document.getElementById("demo").innerHTML =xhttp.responseText;
+
+                                t=setTimeout(dashboard(), 1000);
+                                
+                        }
+                    }
+                    
+                xhttp.open("GET", "/home/dashboard/", true);
+                xhttp.send();
+
+
+            }
+
+            dashboard();
+        </script>
+      </div>
+{% else %}
+             {{hk}}
+         <img src="/static/home/img/1.png" height="125px" width="125px" style="float:left" hspace="30" >
+	       <pre>DR. B.R. AMBEDKAR NATIONAL INSTITUTE OF 
+                   TECHNOLOGY,JALANDHAR</pre>
+        <div class="logo">
+        {% load staticfiles %}
+        <img src="/static/home/img/code.PNG"></div>
+        <h3>Test your capability to debug,analyse and solve problem codes.</h3>
+        <div class="block">
+               <a href="/home/register/"><button>REGISTER</button></a><br/>
+               <a href="/home/login/"><button>LOGIN</button></a>
+        </div>  
+        <pre>
+        <a href="/static/home/img/rules.pdf"><button class="as">Rules</button><a href="/static/home/img/code.rar"><button class="sd">Download Questions</button>
+        </pre>
+            {% endifequal %}  
+    </body>
+</html>

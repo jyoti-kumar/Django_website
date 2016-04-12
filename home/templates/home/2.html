@@ -1,0 +1,18 @@
+<html>
+<body>
+#include<stdio.h>
+
+int main()
+{
+    printf(5+"Good Morning\n");
+    return 0;
+}
+<br>
+<form action="home/2.html" method="POST" >
+{% csrf_token %}
+<p><input type="text" name="ans" ></p>
+<br>
+<p><input type="submit" name="Submit"></p>
+</form>
+</body>
+</html>

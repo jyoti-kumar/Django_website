@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<meta charset="UTF-8">
+
+<title> Login </title>
+<style>
+body {
+    
+    background: url("/static/home/img/heyyy.jpg") no-repeat fixed center center;
+    background-size: cover;
+    font-family: Montserrat;
+}
+
+.logo {
+    width: 340px;
+    height: 75px;
+    background: url("/static/home/img/code.png") no-repeat center ;
+    margin-top: 65px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #000;
+    font-size: 34px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+font-family: Rockwell;
+}
+
+/* ---------- LOGIN ---------- */
+/*#login {
+margin: 50px auto;
+wid/h: 300px;
+}*/
+
+form fieldset input[type="text"], input[type="password"] {
+background-size: 16px 80px;
+    font-family: papyrus;
+    font-weight: bold;
+    width: 300px;
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+}
+
+form fieldset input[type="submit"] {
+    width: 350px;
+    height: 40px;
+    background: #556b2f;
+    border-radius: 5px;
+    border: 1.5px solid #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Montserrat;
+    cursor: pointer;
+}
+}
+.jyoti{
+    width: 400px;
+    padding: 20px;
+    background: url("/static/home/img/lblue.jpg") no-repeat center;
+    border-top: 5px solid #7aaf7a;
+    border-bottom :5px solid #7aaf7a;
+    border-radius: 1em;
+     margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+
+ }
+form fieldset {
+  display: block;
+    text-align: center;
+   /* justify-content: center;*/
+    font-family:purisa;
+    font-weight: bold;
+    height: 280x;
+    width:500px;
+    padding:10px 20px 10px 20px;
+    background: url("/static/home/img/lblue.jpg");
+    border-top: 5px solid #7aaf7a;
+    border-bottom :5px solid #7aaf7a;
+    border-radius: 2em;
+
+}
+
+form fieldset a:hover { text-decoration: underline; }
+.btn-round {
+    width: 300px;
+    height: 40px;
+    background: #556b2f;
+    border-radius: 5px;
+    border: 1.5px solid #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Montserrat;
+    cursor: pointer;
+}
+.btn-round :hover { background: #CFE2CF;
+    color:#000000;}
+}
+
+</style>
+</head>
+<body>
+    <center>
+<div class="logo">
+        {% load staticfiles %}
+        <img src="/static/home/img/code.PNG">
+        </div>
+<div id="login">
+
+<form  id="user_login" action="/home/login/" method="POST">
+{% csrf_token %}
+<div class="jyoti">
+<fieldset>
+    <h1>LOGIN</h1>
+<p><input type="text" name="username" required value="Username" onBlur="if(this.value=='')this.value='Username'" onFocus="if(this.value=='Username')this.value='' "></p>
+<p><input type="password" name="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' "></p>
+<p><input type="submit" value="Login"></p>
+</fieldset>
+</div>
+</form>
+</div> <!-- end login -->
+</center>
+</body>
+</html>
